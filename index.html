@@ -1,0 +1,259 @@
+<Thinking>
+The user wants me to create a modern, professional landing page for InestaEdu. However, I notice that the brand colors are specified as "Primary: 1, Secondary: 1, Accent: 1" which doesn't give me actual color values. I'll need to choose appropriate modern, professional colors that would work well for an educational platform.
+
+Since this is for an educational platform for kids, I should choose colors that are:
+- Professional and trustworthy for parents
+- Engaging and friendly for children
+- Modern and clean
+
+I'll use:
+- Primary: A modern blue (like #3B82F6 - blue-500)
+- Secondary: A complementary color (like #64748B - slate-500) 
+- Accent: A vibrant color for CTAs (like #10B981 - emerald-500)
+
+The content provided is comprehensive and includes:
+1. Hero section
+2. Value proposition
+3. Problem section
+4. Solution section
+5. Features/benefits
+6. Call to action
+
+I need to create a complete HTML page with:
+- Tailwind CSS via CDN
+- Mobile-responsive design
+- Modern typography (Inter)
+- Smooth animations
+- Accessible design
+- Clear visual hierarchy
+- Conversion-optimized CTAs
+
+I'll structure it as a single-page landing page with all the sections flowing logically.
+</Thinking>
+
+I'll create a modern, professional landing page for InestaEdu. Since the brand colors weren't specified with actual values, I'll use a professional color palette suitable for an educational platform.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InestaEdu - Transform Screen Time: Smart Learning For Kids</title>
+    <meta name="description" content="Give your child engaging, expert-led education without screen-time guilt. Safety guaranteed. Start your 7-day free trial today.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        secondary: {
+                            100: '#f1f5f9',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            900: '#0f172a'
+                        },
+                        accent: {
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes bounceGentle {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="font-inter bg-white text-secondary-900 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-secondary-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-primary-600">InestaEdu</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-secondary-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Features</a>
+                        <a href="#how-it-works" class="text-secondary-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">How It Works</a>
+                        <a href="#benefits" class="text-secondary-600 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Benefits</a>
+                        <button class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                            Start Free Trial
+                        </button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-secondary-600 hover:text-primary-600 p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 gradient-bg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left animate-fade-in-up">
+                    <h1 class="text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+                        Transform Screen Time:
+                        <span class="text-accent-500">Smart Learning</span>
+                        For Kids.
+                    </h1>
+                    <p class="mt-6 text-xl text-blue-100 sm:max-w-xl sm:mx-auto lg:mx-0">
+                        Give your child engaging, expert-led education without screen-time guilt. Safety guaranteed.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <button class="bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            Start 7-Day Free Trial
+                        </button>
+                        <p class="mt-3 text-sm text-blue-200">
+                            No credit card required. Cancel anytime.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center animate-fade-in">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <div class="relative block w-full bg-white rounded-lg overflow-hidden">
+                            <div class="p-8">
+                                <div class="flex items-center justify-center h-64 bg-gradient-to-br from-primary-100 to-accent-100 rounded-lg">
+                                    <div class="text-center">
+                                        <div class="w-16 h-16 bg-primary-500 rounded-full mx-auto mb-4 flex items-center justify-center animate-bounce-gentle">
+                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                            </svg>
+                                        </div>
+                                        <p class="text-secondary-600 font-medium">Interactive Learning</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-16 bg-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center animate-fade-in-up">
+                <h2 class="text-3xl font-bold text-secondary-900 sm:text-4xl">
+                    Why Choose InestaEdu?
+                </h2>
+                <p class="mt-4 max-w-3xl mx-auto text-xl text-secondary-600">
+                    InestaEdu turns passive screen time into active, skill-building discovery. We provide expertly curated, interactive educational content for kids aged 6-12, ensuring a safe, ad-free environment and measurable learning outcomes.
+                </p>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="bg-white rounded-xl p-8 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary-900 mb-4">Guilt-Free Screen Time</h3>
+                    <p class="text-secondary-600">Kids learn actively, parents enjoy peace of mind knowing every minute is productive and educational.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary-900 mb-4">Spark Genuine Curiosity</h3>
+                    <p class="text-secondary-600">Captivating, interactive lessons they'll genuinely love, designed to ignite natural curiosity and wonder.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-secondary-900 mb-4">Measurable Progress</h3>
+                    <p class="text-secondary-600">See their skills grow and confidence soar in real-time with detailed progress tracking and achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="
